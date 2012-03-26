@@ -29,7 +29,7 @@ class BrowserIDListener implements ListenerInterface
 
             $url        = 'https://browserid.org/verify';
             $assert     = $request->get('browserid-assertion');
-            $audience   = $request->server->get('SERVER_NAME');
+            $audience   = $request->server->get('HTTP_HOST');
 
             $params = 'assertion='.$assert.'&audience='.urlencode($audience);
             $ch = curl_init();
@@ -40,7 +40,7 @@ class BrowserIDListener implements ListenerInterface
             $result = (array)json_decode(curl_exec($ch));
             curl_close($ch);
 
-            if ($result['status'] = 'okay') {
+            if ($result['status'] == 'okay') {
                 $token = new BrowserIDUserToken();
                 $token->setUser($result['email']);
 

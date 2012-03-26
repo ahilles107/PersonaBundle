@@ -34,13 +34,15 @@ Installation
               );
           }  
 
-  4. Configure your new firewal - add browser id option:
+  4. Configure your new firewal:
 
           # application/config/security.yml
           firewalls:
-            main:
-              ...
+            browserid_secured:
+              pattern:    ^/
               browserid:      true
+              logout: true
+              anonymous: true
 
 Include the login button in your templates
 ------------------------------------------
