@@ -20,7 +20,7 @@ class BrowserIDProvider implements AuthenticationProviderInterface
 
     public function authenticate(TokenInterface $token)
     {
-        $user = $this->userProvider->findUserByUsernameOrEmail($token->getUsername());
+        $user = $this->userProvider->loadUserByUsername($token->getUsername());
 
         if ($user) {
             $authenticatedToken = new BrowserIDUserToken($user->getRoles());
