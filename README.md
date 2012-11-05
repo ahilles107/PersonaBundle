@@ -7,21 +7,17 @@ It provides a Symfony2 authentication provider so that users can login to a Symf
 Installation
 ============
 
-  1. Add this bundle to your ``vendor/`` dir:
+  1. Install bundle:
 
-      * Using git submodules.
+    The recommended way to install Newscoop PHP-SDK is [throughcomposer](http://getcomposer.org). Just create a `composer.json` file and run the `php composer.phar install` command to install it:
 
-            $ git submodule add git://github.com/flywithmonkey/BrowserIDBundle vendor/bundles/AHS/BrowserIDBundle
+    {
+        "require": {
+            "ahs/browserid-bundle": "*"
+        }
+    }
 
-  2. Add the FOS namespace to your autoloader:
-
-          // app/autoload.php
-          $loader->registerNamespaces(array(
-                'AHS' => __DIR__.'/../vendor/bundles',
-                // your other namespaces
-          ));
-
-  3. Add this bundle to your application's kernel:
+  2. Add this bundle to your application's kernel:
 
           // app/ApplicationKernel.php
           public function registerBundles()
@@ -33,12 +29,12 @@ Installation
               );
           }  
 
-  4. Configure your new firewal:
+  3. Configure your new firewal:
 
           # application/config/security.yml
           firewalls:
-            browserid_secured:
-              pattern:    ^/
-              browserid:      true
-              logout: true
-              anonymous: true
+              browserid_secured:
+                  pattern:    ^/
+                  browserid:      true
+                  logout: true
+                  anonymous: true

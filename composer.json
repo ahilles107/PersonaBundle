@@ -1,5 +1,5 @@
 {
-    "name": "AHS/BrowserIdBundle",
+    "name": "ahs/browserid-bundle",
     "description": "BrowserID authentication system integration with Symfony aplications",
     "keywords": ["BrowserID", "Security"],
     "homepage": "https://github.com/ahilles107/BrowserIDBundle",
