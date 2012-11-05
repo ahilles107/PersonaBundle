@@ -1,6 +1,6 @@
 <?php
 
-namespace FWM\BrowserIDBundle\Security\Authentication\Token;
+namespace AHS\BrowserIDBundle\Security\Authentication\Token;
 
 use Symfony\Component\Security\Core\Authentication\Token\AbstractToken;
 

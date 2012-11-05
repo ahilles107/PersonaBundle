@@ -1,5 +1,5 @@
 services:
     security.authentication.factory.browserid:
-        class:  FWM\BrowserIDBundle\DependencyInjection\Security\Factory\BrowserIDFactory
+        class:  AHS\BrowserIDBundle\DependencyInjection\Security\Factory\BrowserIDFactory
         tags:
             - { name: security.listener.factory }

@@ -1,8 +1,8 @@
 services:
   browserid.security.authentication.provider:
-    class:  FWM\BrowserIDBundle\Security\Authentication\Provider\BrowserIDProvider
+    class:  AHS\BrowserIDBundle\Security\Authentication\Provider\BrowserIDProvider
     arguments: ['']
 
   browserid.security.authentication.listener:
-    class:  FWM\BrowserIDBundle\Security\Firewall\BrowserIDListener
+    class:  AHS\BrowserIDBundle\Security\Firewall\BrowserIDListener
     arguments: [@security.context, @security.authentication.manager]

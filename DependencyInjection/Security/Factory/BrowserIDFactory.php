@@ -1,5 +1,6 @@
 <?php
-namespace FWM\BrowserIDBundle\DependencyInjection\Security\Factory;
+
+namespace AHS\BrowserIDBundle\DependencyInjection\Security\Factory;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;

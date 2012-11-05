@@ -1,13 +1,13 @@
 <?php
 
-namespace FWM\BrowserIDBundle\Security\Authentication\Provider;
+namespace AHS\BrowserIDBundle\Security\Authentication\Provider;
 
 use Symfony\Component\Security\Core\Authentication\Provider\AuthenticationProviderInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Exception\NonceExpiredException;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use FWM\BrowserIDBundle\Security\Authentication\Token\BrowserIDUserToken;
+use AHS\BrowserIDBundle\Security\Authentication\Token\BrowserIDUserToken;
 
 class BrowserIDProvider implements AuthenticationProviderInterface
 {

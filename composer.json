@@ -1,0 +1,22 @@
+{
+    "name": "AHS/BrowserIdBundle",
+    "description": "BrowserID authentication system integration with Symfony aplications",
+    "keywords": ["BrowserID", "Security"],
+    "homepage": "https://github.com/ahilles107/BrowserIDBundle",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Paweł Mikołajczuk",
+            "email": "mikolajczuk.private@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "AHS\\BrowserIDBundle": "" }
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": ">=2.1.0,<2.3-dev"
+    },
+    "target-dir": "AHS/BrowserIDBundle"
+}
