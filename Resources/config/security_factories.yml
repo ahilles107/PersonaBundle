@@ -1,5 +1,5 @@
 services:
-    security.authentication.factory.browserid:
-        class:  AHS\BrowserIDBundle\DependencyInjection\Security\Factory\BrowserIDFactory
+    security.authentication.factory.persona:
+        class:  AHS\PersonaBundle\DependencyInjection\Security\Factory\PersonaFactory
         tags:
             - { name: security.listener.factory }

@@ -1,15 +1,15 @@
 <?php
 
-namespace AHS\BrowserIDBundle\Security\Authentication\Provider;
+namespace AHS\PersonaBundle\Security\Authentication\Provider;
 
 use Symfony\Component\Security\Core\Authentication\Provider\AuthenticationProviderInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Exception\NonceExpiredException;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use AHS\BrowserIDBundle\Security\Authentication\Token\BrowserIDUserToken;
+use AHS\PersonaBundle\Security\Authentication\Token\PersonaUserToken;
 
-class BrowserIDProvider implements AuthenticationProviderInterface
+class PersonaProvider implements AuthenticationProviderInterface
 {
     private $userProvider;
 
@@ -21,20 +21,19 @@ class BrowserIDProvider implements AuthenticationProviderInterface
     public function authenticate(TokenInterface $token)
     {
         $user = $this->userProvider->loadUserByUsername($token->getUsername());
-
         if ($user) {
-            $authenticatedToken = new BrowserIDUserToken($user->getRoles());
+            $authenticatedToken = new PersonaUserToken($user->getRoles());
             $authenticatedToken->setUser($user);
             $authenticatedToken->setAuthenticated(true);
 
             return $authenticatedToken;
         }
 
-        throw new AuthenticationException('The BrowserID authentication failed.');
+        throw new AuthenticationException('The Persona authentication failed.');
     }
 
     public function supports(TokenInterface $token)
     {
-        return $token instanceof BrowserIDUserToken;
+        return $token instanceof PersonaUserToken;
     }
 }

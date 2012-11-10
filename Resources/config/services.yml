@@ -1,8 +1,8 @@
 services:
-  browserid.security.authentication.provider:
-    class:  AHS\BrowserIDBundle\Security\Authentication\Provider\BrowserIDProvider
+  persona.security.authentication.provider:
+    class:  AHS\PersonaBundle\Security\Authentication\Provider\PersonaProvider
     arguments: ['']
 
-  browserid.security.authentication.listener:
-    class:  AHS\BrowserIDBundle\Security\Firewall\BrowserIDListener
+  persona.security.authentication.listener:
+    class:  AHS\PersonaBundle\Security\Firewall\PersonaListener
     arguments: [@security.context, @security.authentication.manager]

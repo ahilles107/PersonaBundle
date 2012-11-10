@@ -1,8 +1,8 @@
 {
-    "name": "ahs/browserid-bundle",
-    "description": "BrowserID authentication system integration with Symfony aplications",
-    "keywords": ["BrowserID", "Security"],
-    "homepage": "https://github.com/ahilles107/BrowserIDBundle",
+    "name": "ahs/persona-bundle",
+    "description": "Persona authentication system integration with Symfony aplications",
+    "keywords": ["Persona", "Security"],
+    "homepage": "https://github.com/ahilles107/PersonaBundle",
     "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
@@ -12,11 +12,11 @@
         }
     ],
     "autoload": {
-        "psr-0": { "AHS\\BrowserIDBundle": "" }
+        "psr-0": { "AHS\\PersonaBundle": "" }
     },
     "require": {
         "php": ">=5.3.3",
         "symfony/framework-bundle": ">=2.1.0,<2.3-dev"
     },
-    "target-dir": "AHS/BrowserIDBundle"
+    "target-dir": "AHS/PersonaBundle"
 }

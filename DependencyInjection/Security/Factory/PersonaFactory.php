@@ -1,6 +1,6 @@
 <?php
 
-namespace AHS\BrowserIDBundle\DependencyInjection\Security\Factory;
+namespace AHS\PersonaBundle\DependencyInjection\Security\Factory;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
@@ -8,18 +8,18 @@ use Symfony\Component\DependencyInjection\DefinitionDecorator;
 use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\SecurityFactoryInterface;
 
-class BrowserIDFactory implements SecurityFactoryInterface
+class PersonaFactory implements SecurityFactoryInterface
 {
     public function create(ContainerBuilder $container, $id, $config, $userProvider, $defaultEntryPoint)
     {
-        $providerId = 'security.authentication.provider.browserid.'.$id;
+        $providerId = 'security.authentication.provider.persona.'.$id;
         $container
-            ->setDefinition($providerId, new DefinitionDecorator('browserid.security.authentication.provider'))
+            ->setDefinition($providerId, new DefinitionDecorator('persona.security.authentication.provider'))
             ->replaceArgument(0, new Reference($userProvider))
         ;
 
-        $listenerId = 'security.authentication.listener.browserid.'.$id;
-        $listener = $container->setDefinition($listenerId, new DefinitionDecorator('browserid.security.authentication.listener'));
+        $listenerId = 'security.authentication.listener.persona.'.$id;
+        $listener = $container->setDefinition($listenerId, new DefinitionDecorator('persona.security.authentication.listener'));
 
         return array($providerId, $listenerId, $defaultEntryPoint);
     }
@@ -31,7 +31,7 @@ class BrowserIDFactory implements SecurityFactoryInterface
 
     public function getKey()
     {
-        return 'browserid';
+        return 'persona';
     }
 
     public function addConfiguration(NodeDefinition $node)

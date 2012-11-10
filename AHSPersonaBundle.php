@@ -1,18 +1,18 @@
 <?php
 
-namespace AHS\BrowserIDBundle;
+namespace AHS\PersonaBundle;
 
-use AHS\BrowserIDBundle\DependencyInjection\Security\Factory\BrowserIDFactory;
+use AHS\PersonaBundle\DependencyInjection\Security\Factory\PersonaFactory;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-class AHSBrowserIDBundle extends Bundle
+class AHSPersonaBundle extends Bundle
 {
     public function build(ContainerBuilder $container)
     {
         parent::build($container);
 
         $extension = $container->getExtension('security');
-        $extension->addSecurityListenerFactory(new BrowserIDFactory());
+        $extension->addSecurityListenerFactory(new PersonaFactory());
     }
 }

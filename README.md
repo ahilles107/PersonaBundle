@@ -1,19 +1,19 @@
 Introduction
 ============
 
-This Bundle enables integration of the BrowserID authentication system. 
-It provides a Symfony2 authentication provider so that users can login to a Symfony2 application via BrowserID.
+This Bundle enables integration of the Persona authentication system. 
+It provides a Symfony2 authentication provider so that users can login to a Symfony2 application via Persona.
 
 Installation
 ============
 
   1. Install bundle:
 
-  The recommended way to install BrowserId Bundle is [through composer](http://getcomposer.org). Just create a `composer.json` file and run the `php composer.phar install` command to install it:
+  The recommended way to install Persona Bundle is [through composer](http://getcomposer.org). Just create a `composer.json` file and run the `php composer.phar install` command to install it:
 
           {
               "require": {
-                  "ahs/browserid-bundle": "*"
+                  "ahs/persona-bundle": "*"
               }
           }
 
@@ -24,7 +24,7 @@ Installation
           {
               return array(
                   // ...
-                  new AHS\BrowserIDBundle\AHSBrowserIDBundle(),
+                  new AHS\PersonaBundle\AHSPersonaBundle(),
                   // ...
               );
           }  
@@ -33,15 +33,14 @@ Installation
 
           # application/config/security.yml
           firewalls:
-              browserid_secured:
+              persona_secured:
                   pattern:    ^/
-                  browserid:      true
+                  Persona:      true
                   logout: true
                   anonymous: true
 
 ## TODO
 
-* Rename BrowserId to Persona
 * Provide sample controller
 * Provide twig helper for login/logout buttons
 * Use Buzz instead hardcoded curl.

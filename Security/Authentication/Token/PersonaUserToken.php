@@ -1,10 +1,10 @@
 <?php
 
-namespace AHS\BrowserIDBundle\Security\Authentication\Token;
+namespace AHS\PersonaBundle\Security\Authentication\Token;
 
 use Symfony\Component\Security\Core\Authentication\Token\AbstractToken;
 
-class BrowserIDUserToken extends AbstractToken
+class PersonaUserToken extends AbstractToken
 {
 
     public function getCredentials()

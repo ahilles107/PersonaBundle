@@ -1,6 +1,6 @@
 <?php
 
-namespace AHS\BrowserIDBundle\Security\Firewall;
+namespace AHS\PersonaBundle\Security\Firewall;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
@@ -9,9 +9,9 @@ use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use AHS\BrowserIDBundle\Security\Authentication\Token\BrowserIDUserToken;
+use AHS\PersonaBundle\Security\Authentication\Token\PersonaUserToken;
 
-class BrowserIDListener implements ListenerInterface
+class PersonaListener implements ListenerInterface
 {
     protected $securityContext;
     protected $authenticationManager;
@@ -25,10 +25,10 @@ class BrowserIDListener implements ListenerInterface
     public function handle(GetResponseEvent $event)
     {
         $request = $event->getRequest();
-        if ($request->get('browserid-assertion') != '') {
+        if ($request->get('persona-assertion') != '') {
 
-            $url        = 'https://browserid.org/verify';
-            $assert     = $request->get('browserid-assertion');
+            $url        = 'https://persona.org/verify';
+            $assert     = $request->get('persona-assertion');
             $audience   = $request->server->get('HTTP_HOST');
 
             $params = 'assertion='.$assert.'&audience='.urlencode($audience);
@@ -41,7 +41,7 @@ class BrowserIDListener implements ListenerInterface
             curl_close($ch);
 
             if ($result['status'] == 'okay') {
-                $token = new BrowserIDUserToken();
+                $token = new PersonaUserToken();
                 $token->setUser($result['email']);
 
                 try {
