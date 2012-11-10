@@ -35,7 +35,7 @@ Installation
           firewalls:
               persona_secured:
                   pattern:    ^/
-                  Persona:      true
+                  persona:      true
                   logout: true
                   anonymous: true
 
@@ -43,6 +43,5 @@ Installation
 
 * Provide sample controller
 * Provide twig helper for login/logout buttons
-* Use Buzz instead hardcoded curl.
 * Create provider for FOSUserBundle
 * Promote Mozilla Persona!
