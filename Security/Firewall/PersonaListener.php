@@ -31,8 +31,9 @@ class PersonaListener implements ListenerInterface
             $audience   = $request->server->get('HTTP_HOST');
             $params = 'assertion='.$assert.'&audience='.urlencode($audience);
 
-            $browser = new Buzz\Browser();
-            $response = $browser->post('https://persona.org/verify', array(), $params);
+            $browser = new \Buzz\Browser(new \Buzz\Client\Curl());
+            $result = $browser->post('https://persona.org/verify', array(), $params);
+            $response = json_decode($result->getContent(), true);
 
             if ($response['status'] == 'okay') {
                 $token = new PersonaUserToken();
