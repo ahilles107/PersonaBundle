@@ -46,6 +46,8 @@ Installation
               verifier_url: "your verifier url"
               audience_url: "your audience host"
 
+By default bundle works with `in_memory` provider.
+
 ## TODO
 
 * Provide sample controller
