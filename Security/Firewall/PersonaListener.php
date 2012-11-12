@@ -15,24 +15,27 @@ class PersonaListener implements ListenerInterface
 {
     protected $securityContext;
     protected $authenticationManager;
+    protected $container;
 
-    public function __construct(SecurityContextInterface $securityContext, AuthenticationManagerInterface $authenticationManager)
+    public function __construct(SecurityContextInterface $securityContext, AuthenticationManagerInterface $authenticationManager, $container)
     {
         $this->securityContext = $securityContext;
         $this->authenticationManager = $authenticationManager;
+        $this->container = $container;
     }
 
     public function handle(GetResponseEvent $event)
     {
         $request = $event->getRequest();
-        if ($request->get('persona-assertion') != '') {
+        $config = $this->container->getParameter('ahs_persona');
 
+        if ($request->get('persona-assertion') != '') {
             $assert     = $request->get('persona-assertion');
             $audience   = $request->server->get('HTTP_HOST');
-            $params = 'assertion='.$assert.'&audience='.urlencode($audience);
+            $params = 'assertion='.$assert.'&audience='.urlencode($config['audience_url'] == null ? $audience : $config['audience_url']);
 
             $browser = new \Buzz\Browser(new \Buzz\Client\Curl());
-            $result = $browser->post('https://persona.org/verify', array(), $params);
+            $result = $browser->post($config['verifier_url'], array(), $params);
             $response = json_decode($result->getContent(), true);
 
             if ($response['status'] == 'okay') {

@@ -31,7 +31,7 @@ Installation
 
   3. Configure your new firewal:
 
-          # application/config/security.yml
+          # app/config/security.yml
           firewalls:
               persona_secured:
                   pattern:    ^/
@@ -39,9 +39,17 @@ Installation
                   logout: true
                   anonymous: true
 
+  4. Change default configuration (optional):
+
+          # app/config/config.yml
+          ahs_persona:
+              verifier_url: "your verifier url"
+              audience_url: "your audience host"
+
 ## TODO
 
 * Provide sample controller
 * Provide twig helper for login/logout buttons
 * Create provider for FOSUserBundle
 * Promote Mozilla Persona!
+* Improve readme

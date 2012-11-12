@@ -5,4 +5,4 @@ services:
 
   persona.security.authentication.listener:
     class:  AHS\PersonaBundle\Security\Firewall\PersonaListener
-    arguments: [@security.context, @security.authentication.manager]
+    arguments: [@security.context, @security.authentication.manager, @service_container]

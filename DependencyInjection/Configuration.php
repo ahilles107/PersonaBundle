@@ -18,11 +18,13 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('AHS_persona');
+        $rootNode = $treeBuilder->root('ahs_persona');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode
+            ->children()
+                ->scalarNode('verifier_url')->defaultValue('https://verifier.login.persona.org/verify')->end()
+                ->scalarNode('audience_url')->defaultNull()->end()
+            ->end();
 
         return $treeBuilder;
     }
